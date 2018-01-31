@@ -36,7 +36,7 @@ function DisplayBooks (props) {
                    {book.title}
                  </div>
                  <div className='book-authors'>
-                   {book.authors.map((author) => (<span>{author} <br/></span>))}
+                   {book.authors && book.authors.map((author) => (<span>{author} <br/></span>))}
                  </div>
                </div>
              </li>
