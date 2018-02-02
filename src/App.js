@@ -6,6 +6,7 @@ import {Link, Route} from 'react-router-dom';
 import SearchBooks from './SearchBooks';
 
 class BooksApp extends React.Component {
+
     state = {
         books: ''
     }
@@ -26,7 +27,7 @@ class BooksApp extends React.Component {
                         </div>
                         <div className="list-books-content">
                             <div>
-                                {this.state.books && <DisplayBooks books={this.state.books}/>}
+                                {this.state.books && <DisplayBooks books={this.state.books} title='Title'/>}
                             </div>
                         </div>
                         <div className="open-search">
