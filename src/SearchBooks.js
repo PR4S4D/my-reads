@@ -20,11 +20,10 @@ class SearchBooks extends Component{
   searchBooks = (event) => {
 		event.preventDefault();
 		BooksAPI.search(this.state.query).then(books => {
-			console.log(books);
 			if(books && books.length > 0){
 				this.setState({
 					searchResultsFound : true,
-					searchResults: JSON.stringify(books)
+					searchResults: books
 				})
 			}
 			
@@ -51,14 +50,12 @@ class SearchBooks extends Component{
 					<input type="text" placeholder="Search by title or author" onChange={this.onSearchQueryChange}
 					value={this.state.query}/>
 				</form>
-			  
-
             </div>
         </div>
         <div className="search-books-results">
           <ol className="books-grid"><li>
 			  {
-				this.state.searchResultsFound && <DisplayBooks books={JSON.parse(this.state.searchResults)}/>
+        this.state.searchResultsFound && <DisplayBooks books={this.state.searchResults}/>
 			  }</li>
 		  </ol>
         </div>
