@@ -10,23 +10,10 @@ html, body, .root {
   }
   
   /* main page */
-  
-  .list-books-title {
-    padding: 10px 0;
-    background: #2e7c31;
-    text-align: center;
+  .myreads-appbar{
+    margin-bottom: 20px;
   }
-  .list-books-title h1 {
-    font-weight: 400;
-    margin: 0;
-    color: white;
-  }
-  
-  .list-books-content {
-    padding: 0 0 80px;
-    flex: 1;
-  }
-  
+
   .bookshelf {
     padding: 0 10px 20px;
   }
@@ -49,20 +36,7 @@ html, body, .root {
     right: 25px;
     bottom: 25px;
   }
-/*   .open-search a {
-    display: block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #2e7d32;
-    background-image: url('./icons/add.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 28px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    font-size: 0;
-  }
-   */
+
   /* search page */
   
   .search-books-bar {
@@ -116,7 +90,7 @@ html, body, .root {
     flex-wrap: wrap;
   }
   .books-grid li {
-    padding: 10px 15px;
+    padding: 10px 30px;
     text-align: left;
   }
   
@@ -128,7 +102,13 @@ html, body, .root {
     font-size: 0.8em;
   }
   .book-title {
+    display: inline-block;
     margin-top: 10px;
+    line-height: 1.5em !important;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 3em !important;
   }
   .book-authors {
     color: #999;
@@ -143,17 +123,8 @@ html, body, .root {
   
   .book-shelf-changer {
     position: absolute;
-    right: 0;
+    right: -10px;
     bottom: -10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #60ac5d;
-    background-image: url('./icons/arrow-drop-down.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 20px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
   .book-shelf-changer select {
     width: 100%;

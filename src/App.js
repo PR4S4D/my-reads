@@ -55,7 +55,7 @@ class BooksApp extends React.Component {
             <div className="app">
                 <Route exact path="/" render={() => (
                     <div className="list-books">
-                        <AppBar position="static">
+                        <AppBar position="static" className='myreads-appbar'>
                             <Toolbar>
                                 <Typography type="title" color="inherit" >
                                     MyReads
