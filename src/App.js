@@ -4,6 +4,11 @@ import DisplayBooks from './DisplayBooks';
 import './App.css';
 import {Link, Route} from 'react-router-dom';
 import SearchBooks from './SearchBooks';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
+import Button from 'material-ui/Button';
+import AddIcon from 'material-ui-icons/Add';
 
 class BooksApp extends React.Component {
  
@@ -50,9 +55,13 @@ class BooksApp extends React.Component {
             <div className="app">
                 <Route exact path="/" render={() => (
                     <div className="list-books">
-                        <div className="list-books-title">
-                            <h1>MyReads</h1>
-                        </div>
+                        <AppBar position="static">
+                            <Toolbar>
+                                <Typography type="title" color="inherit" >
+                                    MyReads
+                                </Typography>
+                            </Toolbar>
+                        </AppBar>
                         <div className="list-books-content">
                             <div>
                                 {books &&                                 
@@ -65,9 +74,12 @@ class BooksApp extends React.Component {
                                 }
                             </div>  
                         </div>
-                        <div className="open-search">
-                            <Link to='/search'>Add a book</Link>
-                        </div>
+                        <Link to='/search' className="open-search">
+                            <Button fab color="secondary" aria-label="search books">
+                                <AddIcon />
+                            </Button>
+                        </Link>
+
                     </div>
                 )}/>
                 <Route path="/search" render={() =>(
