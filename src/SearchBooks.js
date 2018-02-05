@@ -2,6 +2,7 @@ import React from 'react';
 import {Component} from 'react';
 import * as BooksAPI from './BooksAPI';
 import DisplayBooks from './DisplayBooks';
+import {Link} from 'react-router-dom';
 
 class SearchBooks extends Component{
 
@@ -34,8 +35,9 @@ class SearchBooks extends Component{
 	return (
         <div className="search-books">
             <div className="search-books-bar">
-		    <a className="close-search" onClick={() => 
-				this.setState({showSearchPage: false})}>Close</a>
+            <Link to="/" className='close-search'/>
+		    {/* <a className="close-search" onClick={() => 
+				this.setState({showSearchPage: false})}>Close</a> */}
             <div className="search-books-input-wrapper">
 				<form onChange={this.searchBooks}  onSubmit={e => e.preventDefault()} >
 					<input type="text" placeholder="Search by title or author" onChange={this.onSearchQueryChange}

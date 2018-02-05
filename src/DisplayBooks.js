@@ -5,6 +5,7 @@ import Button from 'material-ui/Button';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import Snackbar from 'material-ui/Snackbar';
+import PropTypes from 'prop-types';
 
 class DisplayBooks extends Component{
 
@@ -89,6 +90,11 @@ class DisplayBooks extends Component{
 			</div>
 		)
 	}
+}
+
+DisplayBooks.propTypes = {
+    books: PropTypes.array.isRequired,
+    changeBookShelf: PropTypes.func.isRequired
 }
 
 export default DisplayBooks

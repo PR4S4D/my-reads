@@ -55,14 +55,14 @@ class BooksApp extends React.Component {
             <div className="app">
                 <Route exact path="/" render={() => (
                     <div className="list-books">
-                        <AppBar position="static" className='myreads-appbar'>
+                        <AppBar className='myreads-appbar'>
                             <Toolbar>
                                 <Typography type="title" color="inherit" >
                                     MyReads
                                 </Typography>
                             </Toolbar>
                         </AppBar>
-                        <div className="list-books-content">
+                        <div className="list-books-content" style={{marginTop: 64}}>
                             <div>
                                 {books &&                                 
                                  shelves.map(shelf => ( 
