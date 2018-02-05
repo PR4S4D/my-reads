@@ -1,20 +1,23 @@
 import React, {Component} from 'react'
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
+import Card, { CardContent, CardMedia } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
-import Select from 'material-ui/Select';
 import Menu, { MenuItem } from 'material-ui/Menu';
+import Snackbar from 'material-ui/Snackbar';
 
 class DisplayBooks extends Component{
 
-    changeBookShelf = (shelf,book) => {
+    changeBookShelf = (shelf,book, shelfName) => {
+        let message = shelf === 'none' ? `removed ${book.title}` : `Added ${book.title} to ${shelfName}`
         this.props.changeBookShelf(book,shelf); 
-        this.setState({ anchorEl: null });
+        this.setState({ anchorEl: null,open:true,message:message });
     }
     
     state = {
         anchorEl: null,
+        open:false,
+        message:''
     };
 
     handleClick = event => {
@@ -22,11 +25,10 @@ class DisplayBooks extends Component{
     };
 
     handleClose = () => {
-        this.setState({ anchorEl: null });
+        this.setState({ anchorEl: null, open:false });
     };
     
 	render(){
-        console.log('rendering')
         const { anchorEl } = this.state;
 		return (
 			<div className='bookshelf'>
@@ -42,17 +44,19 @@ class DisplayBooks extends Component{
                             <CardMedia style={{ width: 160, height: 220}} image={book.imageLinks.thumbnail} className='book-top'>
                                 <div className="book-shelf-changer">
                                     <Button fab mini color="primary" aria-label="add"  onClick={this.handleClick} className='book-shelf-changer'><ExpandMoreIcon/></Button>
-                                    <Menu id={book.id} anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={this.handleClose}>
-                                        <MenuItem selected={book.shelf === 'currentlyReading'} onClick={e => this.changeBookShelf('currentlyReading',book)}>
+                                    <Menu id={i} anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={this.handleClose}>
+                                        <MenuItem selected={book.shelf === 'currentlyReading'} 
+                                            onClick={e => this.changeBookShelf('currentlyReading',book,'Currently Reading')}>
                                             Currently Reading
                                         </MenuItem>
-                                        <MenuItem selected={book.shelf === 'wantToRead'} onClick={e => this.changeBookShelf('wantToRead',book)}>
+                                        <MenuItem selected={book.shelf === 'wantToRead'} 
+                                            onClick={e => this.changeBookShelf('wantToRead',book,'Want to Read')}>
                                             Want to Read
                                         </MenuItem>
-                                        <MenuItem selected={book.shelf === 'read'} onClick={e => this.changeBookShelf('read',book)}>
+                                        <MenuItem selected={book.shelf === 'read'} onClick={e => this.changeBookShelf('read',book,'Read')}>
                                             Read
                                         </MenuItem>
-                                        <MenuItem selected={book.shelf === 'none'} onClick={e => this.changeBookShelf('none',book)}>
+                                        <MenuItem selected={book.shelf === 'none'} onClick={e => this.changeBookShelf('none',book,'None')}>
                                             None
                                         </MenuItem>
                                     </Menu>                             
@@ -72,6 +76,16 @@ class DisplayBooks extends Component{
 				   ))}
 				</ol>
 			  </div>
+              <Snackbar
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left'
+                }}
+                onClose={this.handleClose}
+                autoHideDuration={1000}
+                open={this.state.open}
+                message={this.state.message}
+                />
 			</div>
 		)
 	}
