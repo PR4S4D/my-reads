@@ -11,8 +11,12 @@ import Select from 'material-ui/Select';
 class DisplayBooks extends Component{
     
     changeBookShelf = (book,event) => {
+        let bookShelvesMap = new Map();
+        bookShelvesMap.set('currentlyReading','Currently Reading');
+        bookShelvesMap.set('wantToRead','Want to Read');
+        bookShelvesMap.set('read','Read');
         let shelf = event.target.value;
-        let message = shelf === 'none' ? `removed ${book.title}` : `Added ${book.title} to ${shelf}`;
+        let message = shelf === 'none' ? `removed ${book.title}` : `Added ${book.title} to ${bookShelvesMap.get(shelf)}`;
         this.setState({open:true,message:message });
         this.props.changeBookShelf(book,shelf); 
     }
