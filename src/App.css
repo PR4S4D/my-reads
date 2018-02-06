@@ -8,6 +8,9 @@ html, body, .root {
     background: white;
     font-family: 'Roboto', sans-serif;
   }
+  a{
+      text-decoration: none;
+  }
   
   /* main page */
   .myreads-appbar{
@@ -85,7 +88,6 @@ html, body, .root {
     list-style-type: none;
     padding: 0;
     margin: 0;
-  
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -98,10 +100,7 @@ html, body, .root {
   .book {
     width: 140px;
   }
-  .book-title,
-  .book-authors {
-    font-size: 0.8em;
-  }
+
   .book-title {
     display: inline-block;
     margin-top: 10px;
@@ -109,10 +108,13 @@ html, body, .root {
     font-weight: 500;
     text-overflow: ellipsis;
     overflow: hidden;
-    max-height: 3em !important;
+    max-height: 3em;
   }
   .book-authors {
-    color: #999;
+    line-height: 1.5em !important;
+    max-height: 3em ;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   
   .book-top {
@@ -124,14 +126,18 @@ html, body, .root {
   
   .book-shelf-changer {
     position: absolute;
-    right: -10px;
-    bottom: -10px;
+    right: -140px;
+    bottom: -20px;
+    background-image: url('./icons/arrow-drop-down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
   }
-  .book-shelf-changer select {
+  .book-shelf-changer-dropdown {
     width: 100%;
     height: 100%;
     opacity: 0;
     cursor: pointer;
+
   }
   
   /* book cover */

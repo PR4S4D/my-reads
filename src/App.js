@@ -34,7 +34,6 @@ class BooksApp extends React.Component {
     }
 
     changeBookShelf = (book,shelf) => {
-        console.log('updating the shelf');
         BooksAPI
         .update(book,shelf)
         .then(response => {
@@ -48,10 +47,9 @@ class BooksApp extends React.Component {
     render() {
 
         let shelves = Array.from(this.bookShelvesMap.keys());
-        let books = this.state.books
-        console.log('logging',this.state.books);
+        let books = this.state.books;
+
         return (
-            
             <div className="app">
                 <Route exact path="/" render={() => (
                     <div className="list-books">
@@ -79,7 +77,6 @@ class BooksApp extends React.Component {
                                 <AddIcon />
                             </Button>
                         </Link>
-
                     </div>
                 )}/>
                 <Route path="/search" render={() =>(

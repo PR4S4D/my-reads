@@ -33,4 +33,5 @@ ReactDOM.render(
         </Reboot>
     </BrowserRouter>,
     document.getElementById('root'));
+    
 registerServiceWorker();
