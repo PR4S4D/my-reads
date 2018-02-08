@@ -80,7 +80,7 @@ class BooksApp extends React.Component {
                     </div>
                 )}/>
                 <Route path="/search" render={() =>(
-                    <SearchBooks onBookShelfChange={(book,shelf) => this.changeBookShelf(book,shelf)}  />
+                    <SearchBooks onBookShelfChange={(book,shelf) => this.changeBookShelf(book,shelf)} currentBooks={books} />
                 )
             }/>
             </div>
