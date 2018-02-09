@@ -14,7 +14,7 @@ class SearchBooks extends Component {
   onSearchQueryChange = event => {
     this.setState({
       query: event.target.value
-    });
+    }); 
   };
 
   searchBooks = event => {
