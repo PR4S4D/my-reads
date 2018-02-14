@@ -71,7 +71,7 @@ class BooksApp extends React.Component {
 								</div>
 							</div>
 							<Link to="/search" className="open-search">
-								<Button fab color="secondary" aria-label="search books">
+								<Button variant="fab" color="secondary" aria-label="search books">
 									<AddIcon />
 								</Button>
 							</Link>

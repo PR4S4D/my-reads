@@ -47,7 +47,7 @@ class DisplayBooks extends Component{
 					 <li key={book.id}>
                        <Card style={{ width: 160, height: 320}}>
                             <CardMedia style={{ width: 160, height: 220}} image={book.imageLinks.thumbnail} href={book.previewLink} target='_blank' className='book-top'>
-                                    <Button fab mini color="primary" aria-label="add" className='book-shelf-changer'>
+                                    <Button variant="fab" mini color="primary" aria-label="add" className='book-shelf-changer'>
                                         <Select value={book.shelf ? book.shelf:'none'} className='book-shelf-changer-dropdown' onChange={e => this.changeBookShelf(book,e)}  displayEmpty>
                                             <MenuItem value='currentlyReading' className='currentlyReading'
                                                 onClick={e => this.changeBookShelf('currentlyReading',book,'Currently Reading')}>
