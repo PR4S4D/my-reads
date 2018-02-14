@@ -39,14 +39,16 @@ class DisplayBooks extends Component{
 			<div className='bookshelf'>
 			  {this.props.title && 
                 <div className='bookshelf-title'>
-                    <Typography type="headline" color='primary'> {this.props.title}</Typography>
+                    <Typography variant="headline" color='primary'> {this.props.title}</Typography>
                 </div> }
 			  <div className='bookshelf-books'>
 				<ol className='books-grid'>
 				  {this.props.books.map((book,i) => (
 					 <li key={book.id}>
                        <Card style={{ width: 160, height: 320}}>
-                            <CardMedia style={{ width: 160, height: 220}} image={book.imageLinks.thumbnail} href={book.previewLink} target='_blank' className='book-top'>
+                            <CardMedia style={{ width: 160, height: 220}} image={book.imageLinks && book.imageLinks.thumbnail ? 
+                                book.imageLinks.thumbnail : 'http://via.placeholder.com/160x220?text=No%20Cover'}
+                                 href={book.previewLink} target='_blank' className='book-top'>
                                     <Button variant="fab" mini color="primary" aria-label="add" className='book-shelf-changer'>
                                         <Select value={book.shelf ? book.shelf:'none'} className='book-shelf-changer-dropdown' onChange={e => this.changeBookShelf(book,e)}  displayEmpty>
                                             <MenuItem value='currentlyReading' className='currentlyReading'
@@ -68,11 +70,11 @@ class DisplayBooks extends Component{
 
                             <CardContent>
                                 <Link  to={book.previewLink} target='_blank'>
-                                    <Typography type="body2" className='book-title'>
+                                    <Typography variant="body2" className='book-title'>
                                         {book.title}
                                     </Typography>
                                 </Link>
-                                <Typography type="caption" className='book-authors'>
+                                <Typography variant="caption" className='book-authors'>
                                 {book.authors && book.authors.map((author) => (<span key={author}>{author} <br/></span>))}
                                 </Typography>           
                             </CardContent>

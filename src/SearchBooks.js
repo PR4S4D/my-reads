@@ -17,11 +17,10 @@ class SearchBooks extends Component {
 		this.setState({
 			query: event.target.value
         });
-        this.searchBooks(event);
+        this.searchBooks();
 	};
 
-	searchBooks = event => {
-        event.preventDefault();
+	searchBooks = () => {
 		BooksAPI.search(this.state.query).then(books => {
 			if (books && books.length > 0) {
 				if (this.props.currentBooks) {
@@ -50,7 +49,7 @@ class SearchBooks extends Component {
 							<DebounceInput
 								type="text"
 								placeholder="Search by title or author"
-								minLength={2}
+								minLength={0}
 								debounceTimeout={300}
 								onChange={this.onSearchQueryChange}
 								value={this.state.query}
@@ -70,7 +69,7 @@ class SearchBooks extends Component {
 					<div>
 						{!this.state.searchResultsFound &&
 							this.state.query &&
-							<Typography align="center" color="primary">
+							<Typography align="center" variant="display1" color="primary">
 								No results
 							</Typography>}
 					</div>

@@ -52,7 +52,7 @@ class BooksApp extends React.Component {
 						<div className="list-books">
 							<AppBar className="myreads-appbar">
 								<Toolbar>
-									<Typography type="title" color="inherit">
+									<Typography variant="headline" color="inherit">
 										MyReads
 									</Typography>
 								</Toolbar>
